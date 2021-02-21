@@ -181,6 +181,7 @@ function security_menu() {
 
 			# This command allows a security admin to see all of the installed packages on the system,
 			# making it easy to spot suspicious packages
+			# NOTE: Only works on Debian
 			2) dpkg -l |less
 
 			;;
@@ -251,7 +252,7 @@ function ir_collect_menu() {
 		#system who are part of the sudoers group.  This would be useful for an admin to double check if
 		#there are any users who are in the sudoers group who shouldn't be, which would be an object
 		#of suspicion in the wake of an attack.
-		1) sudo cat/etc/sudoers | less
+		1) sudo cat /etc/sudoers | less
 
 		;;
 
@@ -259,7 +260,7 @@ function ir_collect_menu() {
 		#for each user on the system.  This would be useful for an admin to see if any of the hashes had
 		#changed, which could be a sign that an attacker changed the passwords for accounts in order to
 		#cover their tracks.
-		2) sudo cat/etc/shadow | less
+		2) sudo cat /etc/shadow | less
 
 		;;
 
