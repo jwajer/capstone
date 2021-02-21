@@ -13,11 +13,11 @@ function admin_menu() {
         echo "2. Show Open Network Sockets"
         echo "3. Check currently logged in users"
         echo "4. Get Linux kernel and arch version"
-		echo "5. Retrieve disk usage and statistics"
-		echo "6. Obtain CPU specifications "
-		echo "7. Obtain RAM statistics"
-		echo "8. Obtain USB input device information"
-		echo "9. Go back to main menu"
+	echo "5. Retrieve disk usage and statistics"
+	echo "6. Obtain CPU specifications "
+	echo "7. Obtain RAM statistics"
+	echo "8. Obtain USB input device information"
+	echo "9. Go back to main menu"
         echo "[E]xit"
 
         #Prompt for the menu option
@@ -28,75 +28,75 @@ function admin_menu() {
         #Case statement to process options
         case "${option}" in
 
-			#Prints out all running processes on the system.  Is useful for an admin to see what is running at
-			#the time.
-			1) ps -ef |less
+		#Prints out all running processes on the system.  Is useful for an admin to see what is running at
+		#the time.
+		1) ps -ef |less
 
-            ;;
+            	;;
 
-			#Shows all open network sockets.  Useful for an admin to see if there are any strange or unknown
-			#sockets open on the system.
-			2) netstat -an --inet |less
-			   # lsof -i -n |less
+		#Shows all open network sockets.  Useful for an admin to see if there are any strange or unknown
+		#sockets open on the system.
+		2) netstat -an --inet |less
+		   # lsof -i -n |less
 
-            ;;
+           	;;
 
-            #Retrieves all currently logged in users.  Useful to see if anyone logged in who shouldn't be.
-			3) w |less
+            	#Retrieves all currently logged in users.  Useful to see if anyone logged in who shouldn't be.
+		3) w |less
 
-            ;;
-
-
-			# So the user can inspect the results like you did in the options 1 - 3.
-			#Gets the current Linux kernel and arch version.  Useful for an admin to check to see if the version
-			#is out of date.  If it is, there could possibly be security issues that need to be patched.
-            4) uname -a | less
-
-            ;;
-
-			#Retrieves the disk information for all physical and virtual disks.  Shows used space, free space, 
-			#% used, dev, and mount point.  Useful for an admin to see if there is any anomalous activity with
-			#the disks.
-			5) df -k | less
-
-			;;
-
-			#Allows for the user to see the CPU of the system.  This would allow the admin to see the CPU specs
-			#to help to determine performance if necessary.
-			6) lscpu | less
-
-			;;
+            	;;
 
 
-			#Allows for the user to get memory statistics and information.  Includes total RAM amount, RAM used,
-			#RAM free, and more statistics.  Useful for an admin to see RAM usage to see if it is too high and
-			#more investigation is necessary as to why.
-			7) cat /proc/meminfo | less
+		# So the user can inspect the results like you did in the options 1 - 3.
+		#Gets the current Linux kernel and arch version.  Useful for an admin to check to see if the version
+		#is out of date.  If it is, there could possibly be security issues that need to be patched.
+		4) uname -a | less
 
-			;;
+	        ;;
 
-			#Gathers information on the USB input devices that are registered by the OS.  This allows for an 
-			#admin to see if there are any devices connected that shouldn't be, such as an unregistered
-			#flash drive.
-			8) lsusb | less
+		#Retrieves the disk information for all physical and virtual disks.  Shows used space, free space, 
+		#% used, dev, and mount point.  Useful for an admin to see if there is any anomalous activity with
+		#the disks.
+		5) df -k | less
 
-			;;
+		;;
 
-			#Returns to the main menu
-			9) main_menu
+		#Allows for the user to see the CPU of the system.  This would allow the admin to see the CPU specs
+		#to help to determine performance if necessary.
+		6) lscpu | less
 
-			;;
+		;;
 
-			# Exits the program
-			[Ee]) exit 0
 
-			;;
+		#Allows for the user to get memory statistics and information.  Includes total RAM amount, RAM used,
+		#RAM free, and more statistics.  Useful for an admin to see RAM usage to see if it is too high and
+		#more investigation is necessary as to why.
+		7) cat /proc/meminfo | less
 
-			# Catches for an invalid option and then returns the user to the admin menu
-			*) echo "Invalid Option!"
-					sleep 3
-					admin_menu
-			;;
+		;;
+
+		#Gathers information on the USB input devices that are registered by the OS.  This allows for an 
+		#admin to see if there are any devices connected that shouldn't be, such as an unregistered
+		#flash drive.
+		8) lsusb | less
+
+		;;
+
+		#Returns to the main menu
+		9) main_menu
+
+		;;
+
+		# Exits the program
+		[Ee]) exit 0
+
+		;;
+
+		# Catches for an invalid option and then returns the user to the admin menu
+		*) echo "Invalid Option!"
+				sleep 3
+				admin_menu
+		;;
 
         #Stops the case statement
         esac
@@ -124,22 +124,22 @@ function main_menu() {
         #Case statement to process options
         case "${option}" in
 
-				# Calls the admin menu
+		# Calls the admin menu
                 1) admin_menu
 
                 ;;
 
-				# Calls the security menu
+		# Calls the security menu
                 2) security_menu
 
                 ;;
 
-				# Exits the program
+		# Exits the program
                 [Ee]) exit 0
 
-				;;
+		;;
 
-				# Catches for an invalid option and then returns the user to the main menu
+		# Catches for an invalid option and then returns the user to the main menu
                 *) echo "Invalid Option!"
                         sleep 3
                         main_menu
@@ -164,7 +164,7 @@ function security_menu() {
         echo "1. Show last logged in users"
         echo "2. Check installed packages"
         echo "3. Check all users and their IDs"
-		echo "4. Go to the Incident Response Collection"
+	echo "4. Go to the Incident Response Collection"
         echo "5. Return to the main menu"
         echo "[E]xit"
 
@@ -173,44 +173,44 @@ function security_menu() {
 
 		case "${option}" in
 
-				# This command allows a security admin to see who was the user who was last logged
-				# in to the system, which can be useful in determining a timeline for an incident
-                1) last -adx |less
+			# This command allows a security admin to see who was the user who was last logged
+			# in to the system, which can be useful in determining a timeline for an incident
+			1) last -adx |less
 
-                ;;
+			;;
 
-				# This command allows a security admin to see all of the installed packages on the system,
-				# making it easy to spot suspicious packages
-                2) dpkg -l |less
+			# This command allows a security admin to see all of the installed packages on the system,
+			# making it easy to spot suspicious packages
+			2) dpkg -l |less
 
-                ;;
+			;;
 
-				# This command shows the security admin all of the users and IDs that are present on the system
-                3) cut -d: -f1,3 /etc/passwd |less
+			# This command shows the security admin all of the users and IDs that are present on the system
+			3) cut -d: -f1,3 /etc/passwd |less
 
-                ;;
+			;;
 
-				# Opens the IR Collect menu
-				4) ir_collect_menu
+			# Opens the IR Collect menu
+			4) ir_collect_menu
 
-				;;
+			;;
 
-				# Returns the user to the main menu
-                5) main_menu
+			# Returns the user to the main menu
+			5) main_menu
 
-                ;;
+			;;
 
-				# Exits the program
-                [Ee]) exit 0
+			# Exits the program
+			[Ee]) exit 0
 
-                ;;
+			;;
 
-				# Catches an invalid option not defined above
-                *) echo "Invalid input"
-                        sleep 3
-                        security_menu
+			# Catches an invalid option not defined above
+			*) echo "Invalid input"
+				sleep 3
+				security_menu
 
-                ;;
+			;;
 
 		#Stop the case statement
 		esac
@@ -362,4 +362,5 @@ function ir_collect_menu() {
 ir_collect_menu
 }
 
+# Calls the main menu
 main_menu
