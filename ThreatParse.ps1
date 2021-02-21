@@ -41,5 +41,5 @@ Out-File -FilePath "bad-ips.tmp"
 # After the IP adddress, add the remaining IPTables syntax and save it to a file
 # iptables -A INPUT -s IP -j DROP
 (Get-Content -Path ".\bad-ips.tmp") | % `
-{ $_ -replace "^","iptables -A INPUT -s " -replace "$"," -j DROP"} 
-Out-File -FilePath "iptales.bash"
+{ $_ -replace "^","iptables -A INPUT -s " -replace "$"," -j DROP" } | `
+Out-File -FilePath "iptables.bash"
