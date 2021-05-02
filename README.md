@@ -4,10 +4,10 @@
 All files are linked in relevant documentation found on the Homepage.  If files are nested under another files, that means that the top file is the dependent of the nested files.
 
 The following files were used in the Powershell section of Sprint 1 - SYS 320:
-* GenerateIPFiles.ps1
 * SSH.ps1
 * SendMail.ps1
 * ThreatParse.ps1
+  * GenerateIPFiles.ps1
   * bad-ips.tmp
   * compromised-ips.txt
   * emerging-botcc.rules
